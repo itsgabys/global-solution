@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="../css/style.css">
   <script src="../js/app.js" defer></script>
   <script src="../js/admin-requests.js" defer></script>
+  <script src="../js/admin-announcements.js" defer></script>
+  <script src="../js/admin-auth.js" defer></script>
 </head>
 <body data-page="admin">
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -28,6 +30,25 @@
     </nav>
   </header>
   <main id="conteudo" class="page-content">
+    <section id="login-section" class="panel login-panel" aria-labelledby="login-title">
+      <div class="section-heading">
+        <span class="heading-icon" aria-hidden="true">🔐</span>
+        <div>
+          <h1 id="login-title">Acesso da zeladoria</h1>
+          <p>Entre com seu código de administrador e sua senha.</p>
+        </div>
+      </div>
+      <form id="login-form">
+        <label for="admin-code">Código do administrador</label>
+        <input id="admin-code" name="code" type="text" autocomplete="username" maxlength="24" placeholder="Ex.: ZEL-001" required>
+        <label for="admin-password">Senha</label>
+        <input id="admin-password" name="password" type="password" autocomplete="current-password" maxlength="64" required>
+        <button class="button button-primary submit-button" type="submit">Entrar na área da zeladoria</button>
+        <p id="login-message" class="form-message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <div id="admin-content" hidden>
     <section class="welcome" aria-labelledby="page-title">
       <div>
         <p class="eyebrow">ADMINISTRAÇÃO</p>
@@ -37,8 +58,12 @@
       <span class="welcome-icon" aria-hidden="true">🧰</span>
     </section>
     <aside class="demo-notice" aria-label="Aviso sobre acesso">
-      <strong>Modo demonstração:</strong> esta página não tem login nem proteção de acesso. Não use dados pessoais ou informações confidenciais. Para restringir o acesso de verdade, é necessário conectar o site a um servidor com autenticação.
+      <strong>Modo demonstração:</strong> o login é apenas visual; códigos e senhas ficam no JavaScript e podem ser vistos. Não use dados pessoais ou informações confidenciais. Acesso realmente protegido exige servidor com autenticação.
     </aside>
+    <div class="admin-session">
+      <p id="admin-session-name" role="status"></p>
+      <button id="logout-button" class="delete-button" type="button">Sair da área da zeladoria</button>
+    </div>
 
     <section class="summary-grid" aria-label="Resumo de cadastros">
       <article class="summary-card">
@@ -85,7 +110,30 @@
       <p id="admin-requests-empty" class="empty-state">Ainda não há solicitações da comunidade.</p>
       <p id="admin-request-message" class="form-message" role="status" aria-live="polite"></p>
     </section>
+
+    <section class="panel announcements-admin-panel" aria-labelledby="announcements-admin-title">
+      <div class="section-heading">
+        <span class="heading-icon" aria-hidden="true">📢</span>
+        <div>
+          <h2 id="announcements-admin-title">Avisos para a comunidade</h2>
+          <p>Publique comunicados que aparecerão no quadro da página inicial.</p>
+        </div>
+      </div>
+      <form id="announcement-form">
+        <label for="announcement-title">Título do aviso</label>
+        <input id="announcement-title" name="title" type="text" maxlength="80" placeholder="Ex.: Limpeza da praça na sexta-feira" required>
+        <label for="announcement-body">Mensagem</label>
+        <textarea id="announcement-body" name="body" rows="4" maxlength="500" placeholder="Escreva o aviso para os moradores" required></textarea>
+        <button class="button button-primary submit-button" type="submit">＋ &nbsp;Publicar aviso</button>
+        <p id="announcement-message" class="form-message" role="status" aria-live="polite"></p>
+      </form>
+      <h3 class="announcements-list-title">Avisos publicados</h3>
+      <div id="admin-announcements" class="announcement-list" aria-live="polite"></div>
+      <p id="admin-announcements-empty" class="empty-state">Ainda não há avisos publicados.</p>
+    </section>
+
     <p class="privacy-note"><a href="index.html">Voltar à área da comunidade</a></p>
+    </div>
   </main>
   <footer class="site-footer"><p>Uma comunidade bem cuidada começa com a participação de todos.</p></footer>
 </body>

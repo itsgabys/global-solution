@@ -1,4 +1,5 @@
 const ITEMS_KEY = "zeladoria-bairro-items";
+const ANNOUNCEMENTS_KEY = "zeladoria-bairro-announcements";
 const exampleItems = [
   {
     id: "sample-space",
@@ -24,6 +25,8 @@ const itemList = document.querySelector("#item-list");
 const emptyState = document.querySelector("#empty-state");
 const spaceCount = document.querySelector("#space-count");
 const projectCount = document.querySelector("#project-count");
+const announcementsList = document.querySelector("#public-announcements");
+const announcementsEmpty = document.querySelector("#public-announcements-empty");
 
 function getPublicItems() {
   try {
@@ -103,5 +106,70 @@ function renderPublicItems() {
   }
 }
 
+function getAnnouncements() {
+  try {
+    const storedAnnouncements = localStorage.getItem(ANNOUNCEMENTS_KEY);
+    if (storedAnnouncements === null) {
+      return [];
+    }
+
+    const parsedAnnouncements = JSON.parse(storedAnnouncements);
+    if (
+      !Array.isArray(parsedAnnouncements) ||
+      !parsedAnnouncements.every((announcement) =>
+        announcement &&
+        typeof announcement.id === "string" &&
+        typeof announcement.title === "string" &&
+        typeof announcement.body === "string" &&
+        typeof announcement.publishedAt === "string"
+      )
+    ) {
+      throw new Error("Os avisos salvos não estão em um formato válido.");
+    }
+    return parsedAnnouncements;
+  } catch (error) {
+    console.error("Não foi possível carregar os avisos:", error);
+    announcementsEmpty.textContent = "Não foi possível carregar os avisos neste navegador.";
+    return [];
+  }
+}
+
+function createAnnouncementCard(announcement) {
+  const card = document.createElement("article");
+  card.className = "announcement-card";
+
+  const heading = document.createElement("div");
+  heading.className = "announcement-card-heading";
+  const title = document.createElement("h3");
+  title.textContent = announcement.title;
+  const date = document.createElement("time");
+  date.dateTime = announcement.publishedAt;
+  const publishedDate = new Date(announcement.publishedAt);
+  date.textContent = Number.isNaN(publishedDate.getTime())
+    ? "Aviso da zeladoria"
+    : publishedDate.toLocaleDateString("pt-BR");
+  heading.append(title, date);
+
+  const body = document.createElement("p");
+  body.textContent = announcement.body;
+  card.append(heading, body);
+  return card;
+}
+
+function renderAnnouncements() {
+  if (!announcementsList || !announcementsEmpty) {
+    return;
+  }
+  const announcements = getAnnouncements();
+  announcementsList.replaceChildren(...announcements.map(createAnnouncementCard));
+  announcementsEmpty.hidden = announcements.length > 0;
+}
+
 searchInput.addEventListener("input", renderPublicItems);
 renderPublicItems();
+renderAnnouncements();
+window.addEventListener("storage", (event) => {
+  if (event.key === ANNOUNCEMENTS_KEY) {
+    renderAnnouncements();
+  }
+});
