@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7f2">
+  <title>Solicitações | Zeladoria do Bairro</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/requests.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Zeladoria do Bairro, página inicial">
+        <span class="brand-icon" aria-hidden="true">⌂</span>
+        <span>Zeladoria do Bairro</span>
+      </a>
+      <p class="header-note">Cuidando dos espaços que são de todos</p>
+    </div>
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a href="index.html">Visão geral</a>
+      <a href="espacos.html">Espaços públicos</a>
+      <a href="projetos.html">Projetos</a>
+      <a href="solicitacoes.html" aria-current="page">Solicitações</a>
+    </nav>
+  </header>
+  <main id="conteudo" class="page-content">
+    <section class="welcome" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">A VOZ DOS MORADORES</p>
+        <h1 id="page-title">Solicitações da comunidade</h1>
+        <p class="welcome-copy">Registre uma necessidade do bairro e acompanhe as providências.</p>
+      </div>
+      <span class="welcome-icon" aria-hidden="true">📣</span>
+    </section>
+    <div class="content-grid">
+      <section class="panel form-panel" aria-labelledby="request-form-title">
+        <div class="section-heading">
+          <span class="heading-icon" aria-hidden="true">＋</span>
+          <div>
+            <h2 id="request-form-title">Nova solicitação</h2>
+            <p>Conte à zeladoria o que precisa de atenção.</p>
+          </div>
+        </div>
+        <form id="request-form">
+          <label for="request-title">O que precisa ser feito?</label>
+          <input id="request-title" name="title" type="text" maxlength="80" placeholder="Ex.: Consertar banco da praça" required>
+          <label for="request-location">Onde?</label>
+          <input id="request-location" name="location" type="text" maxlength="100" placeholder="Informe a rua ou um ponto de referência" required>
+          <label for="request-category">Tipo de solicitação</label>
+          <select id="request-category" name="category">
+            <option>Limpeza</option>
+            <option>Manutenção</option>
+            <option>Iluminação</option>
+            <option>Acessibilidade</option>
+            <option>Outro</option>
+          </select>
+          <label for="request-description">Detalhes <span class="optional">(opcional)</span></label>
+          <textarea id="request-description" name="description" rows="3" maxlength="240" placeholder="Acrescente informações que ajudem a zeladoria"></textarea>
+          <button class="button button-primary submit-button" type="submit">＋ &nbsp;Enviar solicitação</button>
+          <p id="request-message" class="form-message" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+      <section class="panel list-panel" aria-labelledby="request-list-title">
+        <div class="list-heading">
+          <div class="section-heading">
+            <span class="heading-icon list-icon" aria-hidden="true">▤</span>
+            <div>
+              <h2 id="request-list-title">Acompanhamento</h2>
+              <p>Consulte as solicitações registradas neste navegador.</p>
+            </div>
+          </div>
+          <label class="search-label" for="search-requests">Buscar solicitações</label>
+          <input class="search-input" id="search-requests" type="search" placeholder="Digite um assunto ou local">
+        </div>
+        <div id="request-list" class="item-list" aria-live="polite"></div>
+        <p id="requests-empty-state" class="empty-state">Ainda não há solicitações. Use o formulário para registrar a primeira.</p>
+      </section>
+    </div>
+    <p class="privacy-note">As solicitações ficam salvas somente neste navegador.</p>
+  </main>
+  <footer class="site-footer">
+    <p>Uma comunidade bem cuidada começa com a participação de todos.</p>
+    <p class="admin-entry"><a href="admin.html">Acesso da zeladoria (demonstração)</a></p>
+  </footer>
+</body>
+</html>

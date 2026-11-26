@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7f2">
+  <title>Área da zeladoria | Zeladoria do Bairro</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/app.js" defer></script>
+  <script src="../js/admin-requests.js" defer></script>
+</head>
+<body data-page="admin">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Zeladoria do Bairro, página inicial">
+        <span class="brand-icon" aria-hidden="true">⌂</span>
+        <span>Zeladoria do Bairro</span>
+      </a>
+      <p class="header-note">Área de administração</p>
+    </div>
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a href="index.html">Visão geral pública</a>
+      <a href="espacos.html">Espaços</a>
+      <a href="projetos.html">Projetos</a>
+      <a href="solicitacoes.html">Solicitações</a>
+      <a href="admin.html" aria-current="page">Zeladoria</a>
+    </nav>
+  </header>
+  <main id="conteudo" class="page-content">
+    <section class="welcome" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">ADMINISTRAÇÃO</p>
+        <h1 id="page-title">Área da zeladoria</h1>
+        <p class="welcome-copy">Gerencie os espaços, acompanhe projetos e atualize as solicitações dos moradores.</p>
+      </div>
+      <span class="welcome-icon" aria-hidden="true">🧰</span>
+    </section>
+    <aside class="demo-notice" aria-label="Aviso sobre acesso">
+      <strong>Modo demonstração:</strong> esta página não tem login nem proteção de acesso. Não use dados pessoais ou informações confidenciais. Para restringir o acesso de verdade, é necessário conectar o site a um servidor com autenticação.
+    </aside>
+
+    <section class="summary-grid" aria-label="Resumo de cadastros">
+      <article class="summary-card">
+        <span class="summary-icon" aria-hidden="true">🏞️</span>
+        <div><p>Espaços cadastrados</p><strong id="space-count">0</strong></div>
+      </article>
+      <article class="summary-card">
+        <span class="summary-icon" aria-hidden="true">🤝</span>
+        <div><p>Projetos em andamento</p><strong id="project-count">0</strong></div>
+      </article>
+    </section>
+
+    <div class="content-grid admin-management-grid">
+      <section class="panel list-panel" aria-labelledby="list-title">
+        <div class="list-heading">
+          <div class="section-heading">
+            <span class="heading-icon list-icon" aria-hidden="true">▤</span>
+            <div><h2 id="list-title">Espaços e projetos</h2><p>Edite a situação ou remova um cadastro.</p></div>
+          </div>
+          <label class="search-label" for="search-items">Buscar cadastros</label>
+          <input class="search-input" id="search-items" type="search" placeholder="Digite um nome ou local">
+        </div>
+        <div class="filters" role="group" aria-label="Filtrar cadastros">
+          <button class="filter-button is-selected" type="button" data-filter="all" aria-pressed="true">Todos</button>
+          <button class="filter-button" type="button" data-filter="space" aria-pressed="false">Espaços públicos</button>
+          <button class="filter-button" type="button" data-filter="project" aria-pressed="false">Projetos</button>
+        </div>
+        <div id="item-list" class="item-list" aria-live="polite"></div>
+        <p id="empty-state" class="empty-state" hidden>Nenhum cadastro encontrado.</p>
+        <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+      </section>
+    </div>
+
+    <section class="panel requests-admin-panel" aria-labelledby="requests-admin-title">
+      <div class="list-heading">
+        <div class="section-heading">
+          <span class="heading-icon list-icon" aria-hidden="true">📣</span>
+          <div><h2 id="requests-admin-title">Solicitações dos moradores</h2><p>Atualize a situação ou exclua solicitações resolvidas.</p></div>
+        </div>
+        <label class="search-label" for="search-admin-requests">Buscar solicitações</label>
+        <input class="search-input" id="search-admin-requests" type="search" placeholder="Digite um assunto ou local">
+      </div>
+      <div id="admin-request-list" class="item-list" aria-live="polite"></div>
+      <p id="admin-requests-empty" class="empty-state">Ainda não há solicitações da comunidade.</p>
+      <p id="admin-request-message" class="form-message" role="status" aria-live="polite"></p>
+    </section>
+    <p class="privacy-note"><a href="index.html">Voltar à área da comunidade</a></p>
+  </main>
+  <footer class="site-footer"><p>Uma comunidade bem cuidada começa com a participação de todos.</p></footer>
+</body>
+</html>

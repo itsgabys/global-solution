@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7f2">
+  <title>Espaços públicos | Zeladoria do Bairro</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/public.js" defer></script>
+</head>
+<body data-page="space">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Zeladoria do Bairro, página inicial">
+        <span class="brand-icon" aria-hidden="true">⌂</span>
+        <span>Zeladoria do Bairro</span>
+      </a>
+      <p class="header-note">Cuidando dos espaços que são de todos</p>
+    </div>
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a href="index.html">Visão geral</a>
+      <a href="espacos.html" aria-current="page">Espaços públicos</a>
+      <a href="projetos.html">Projetos</a>
+      <a href="solicitacoes.html">Solicitações</a>
+    </nav>
+  </header>
+  <main id="conteudo" class="page-content">
+    <section class="welcome" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">CUIDADO COM O BAIRRO</p>
+        <h1 id="page-title">Espaços públicos</h1>
+        <p class="welcome-copy">Cadastre praças, parques e outros lugares compartilhados. Atualize a situação quando necessário.</p>
+      </div>
+      <span class="welcome-icon" aria-hidden="true">🏞️</span>
+    </section>
+    <div class="content-grid public-content">
+      <section class="panel list-panel" aria-labelledby="list-title">
+        <div class="list-heading">
+          <div class="section-heading">
+            <span class="heading-icon list-icon" aria-hidden="true">▤</span>
+            <div>
+              <h2 id="list-title">Espaços cadastrados</h2>
+              <p>Acompanhe a situação de cada lugar.</p>
+            </div>
+          </div>
+          <label class="search-label" for="search-items">Buscar espaços</label>
+          <input class="search-input" id="search-items" type="search" placeholder="Digite um nome ou local">
+        </div>
+        <div id="item-list" class="item-list" aria-live="polite"></div>
+        <p id="empty-state" class="empty-state" hidden>Nenhum espaço encontrado.</p>
+      </section>
+    </div>
+    <p class="privacy-note">Consulta pública. Os cadastros são administrados pela zeladoria.</p>
+  </main>
+  <footer class="site-footer">
+    <p>Uma comunidade bem cuidada começa com a participação de todos.</p>
+    <p class="admin-entry"><a href="admin.html">Acesso da zeladoria (demonstração)</a></p>
+  </footer>
+</body>
+</html>

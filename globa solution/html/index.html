@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7f2">
+  <title>Zeladoria do Bairro</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/public.js" defer></script>
+</head>
+<body data-page="dashboard">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#" aria-label="Zeladoria do Bairro, página inicial">
+        <span class="brand-icon" aria-hidden="true">⌂</span>
+        <span>Zeladoria do Bairro</span>
+      </a>
+      <p class="header-note">Cuidando dos espaços que são de todos</p>
+    </div>
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a href="index.html" aria-current="page">Visão geral</a>
+      <a href="espacos.html">Espaços públicos</a>
+      <a href="projetos.html">Projetos</a>
+      <a href="solicitacoes.html">Solicitações</a>
+    </nav>
+  </header>
+
+  <main id="conteudo" class="page-content">
+    <section class="welcome" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">PAINEL DA COMUNIDADE</p>
+        <h1 id="page-title">Bom dia! Vamos cuidar do bairro?</h1>
+        <p class="welcome-copy">Acompanhe os espaços públicos e os projetos da nossa comunidade.</p>
+      </div>
+      <span class="welcome-icon" aria-hidden="true">🌳</span>
+    </section>
+
+    <section class="summary-grid" aria-label="Resumo do bairro">
+      <article class="summary-card">
+        <span class="summary-icon" aria-hidden="true">🏞️</span>
+        <div>
+          <p>Espaços cadastrados</p>
+          <strong id="space-count">0</strong>
+        </div>
+      </article>
+      <article class="summary-card">
+        <span class="summary-icon" aria-hidden="true">🤝</span>
+        <div>
+          <p>Projetos em andamento</p>
+          <strong id="project-count">0</strong>
+        </div>
+      </article>
+    </section>
+
+    <div class="content-grid">
+      <section class="panel list-panel dashboard-list" aria-labelledby="list-title">
+        <div class="list-heading">
+          <div class="section-heading">
+            <span class="heading-icon list-icon" aria-hidden="true">▤</span>
+            <div>
+              <h2 id="list-title">Cadastros do bairro</h2>
+              <p>Consulte as informações compartilhadas pela zeladoria.</p>
+            </div>
+          </div>
+          <label class="search-label" for="search-items">Buscar cadastros</label>
+          <input class="search-input" id="search-items" type="search" placeholder="Digite um nome ou local">
+        </div>
+
+        <div id="item-list" class="item-list" aria-live="polite"></div>
+        <p id="empty-state" class="empty-state" hidden>Nenhum cadastro encontrado.</p>
+      </section>
+    </div>
+    <p class="privacy-note">Seus cadastros ficam salvos neste navegador.</p>
+  </main>
+
+  <footer class="site-footer">
+    <p>Uma comunidade bem cuidada começa com a participação de todos.</p>
+    <p class="admin-entry"><a href="admin.html">Acesso da zeladoria (demonstração)</a></p>
+  </footer>
+</body>
+</html>
